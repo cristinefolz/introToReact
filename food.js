@@ -1,6 +1,6 @@
 //Render Mexican food items to the page.
 
-var DATA = {  // DATA is an object, that contains key/value pairs
+var DATA = {  // DATA is an Object, that contains key/value pairs (tite: 'string', items: [])
   title: 'Menu',
   items: [  // item is a key that has a value of an array
     { id: 1, name: 'tacos', type: 'mexican'},
@@ -11,20 +11,20 @@ var DATA = {  // DATA is an object, that contains key/value pairs
   ]
 };
 
-// just filter for mexican food, map the name of filtered food
+// filter for mexican food, map the name of filtered food
 
-var mexican = function(food) {
+var foodType = function(food) {
   return food.type === 'mexican';
 };
 
 var foodName = function(food) {
-  return <li> {food.name} </li>;
+  return <li> { food.name } </li>;
 };
 
 var Menu = React.createClass({
   render: function(){
                               // DATA.items points to the array of the items property
-    var filterAndMapFoodHere = DATA.items.filter(mexican).map(foodName);  // returning an array (not a DATA object with fewer items)
+    var filterAndMapFoodHere = DATA.items.filter(foodType).map(foodName);  // returning an array (not a DATA object with fewer items)
 
     return (
       // '{' braces make the data in them dynamic
